@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+	color-scheme: light;
+	--color-bg: #fefefe;
+	--color-surface: rgba(255, 255, 255, 0.85);
+	--color-surface-strong: #f4f4f5;
+	--color-text: #111111;
+	--color-text-soft: #71717a;
+	--color-border: rgba(0, 0, 0, 0.08);
+	--color-accent: #111111;
+	--color-accent-soft: rgba(0, 0, 0, 0.05);
+	--shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+	--font-geist: "Geist", sans-serif;
+}
+
+html.dark {
+	color-scheme: dark;
+	--color-bg: #0a0a0a;
+	--color-surface: rgba(18, 18, 18, 0.85);
+	--color-surface-strong: #161616;
+	--color-text: #fafafa;
+	--color-text-soft: #a1a1aa;
+	--color-border: rgba(255, 255, 255, 0.08);
+	--color-accent: #fafafa;
+	--color-accent-soft: rgba(255, 255, 255, 0.06);
+	--shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@theme {
+	--font-sans: var(--font-geist);
+}
+
+@layer base {
+	html {
+		font-family: var(--font-geist);
+		background-color: var(--color-bg);
+		color: var(--color-text);
+		scroll-behavior: smooth;
+		transition:
+			background-color 300ms ease,
+			color 300ms ease;
+	}
+
+	body {
+		min-height: 100vh;
+		background: var(--color-bg);
+		color: var(--color-text);
+	}
+
+	/* Hide scrollbars everywhere while keeping scroll functionality */
+	* {
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	*::-webkit-scrollbar {
+		display: none;
+	}
+
+	* {
+		border-color: var(--color-border);
+	}
+
+	::selection {
+		background: var(--color-text);
+		color: var(--color-bg);
+	}
+
+	p,
+	li,
+	label,
+	blockquote {
+		max-width: min(100%, 65ch);
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-geist);
+		font-weight: 700;
+		letter-spacing: -0.04em;
+		line-height: 1.05;
+		text-wrap: balance;
+		max-width: 18ch;
+	}
+
+	p,
+	label,
+	input,
+	textarea,
+	button,
+	a {
+		font-family: var(--font-geist);
+	}
+
+	p,
+	li {
+		line-height: 1.7;
+		color: var(--color-text-soft);
+		text-wrap: pretty;
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	a,
+	button,
+	input,
+	textarea {
+		transition:
+			background-color 200ms ease,
+			color 200ms ease,
+			border-color 200ms ease,
+			box-shadow 200ms ease,
+			transform 200ms ease,
+			opacity 200ms ease,
+			padding 200ms ease;
+	}
+
+	a:focus-visible,
+	button:focus-visible,
+	input:focus-visible,
+	textarea:focus-visible {
+		outline: 2px solid var(--color-text);
+		outline-offset: 3px;
+	}
+}
+
+@layer utilities {
+	.glass-panel {
+		background: var(--color-surface);
+		backdrop-filter: blur(12px);
+		border: 1px solid var(--color-border);
+		box-shadow: var(--shadow-card);
+	}
+
+	.section-shell {
+		margin-inline: auto;
+		width: 100%;
+		max-width: 52rem;
+		padding-inline: 1.5rem;
+	}
+
+	.text-measure {
+		max-width: 48rem;
+	}
+
+	.text-measure-tight {
+		max-width: 42rem;
+	}
+
+	.surface-card {
+		background: color-mix(in srgb, var(--color-surface-strong) 88%, transparent);
+		box-shadow: var(--shadow-card);
+		border: 1px solid var(--color-border);
+	}
+
+	.caption-text {
+		font-size: 0.75rem;
+		line-height: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.22em;
+		color: var(--color-text-soft);
+	}
+
+	.marquee-track {
+		animation: marquee 24s linear infinite;
+		will-change: transform;
+	}
+
+	.marquee-track:hover {
+		animation-play-state: paused;
+	}
+
+	.carousel-track {
+		animation: carousel 28s linear infinite;
+		will-change: transform;
+	}
+
+	.carousel-track:hover {
+		animation-play-state: paused;
+	}
+}
+
+@keyframes marquee {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+
+	to {
+		transform: translate3d(-50%, 0, 0);
+	}
+}
+
+@keyframes carousel {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+
+	to {
+		transform: translate3d(-50%, 0, 0);
+	}
+}
+
+@keyframes sparkle-burst {
+	0% {
+		opacity: 1;
+		transform: translate3d(var(--x), var(--y), 0) scale(0.4);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translate3d(calc(var(--x) * 2.8), calc(var(--y) * 2.8), 0) scale(1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition-duration: 1ms !important;
+		scroll-behavior: auto !important;
+	}
+}
