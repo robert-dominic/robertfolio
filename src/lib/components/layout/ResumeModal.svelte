@@ -69,7 +69,7 @@
 					<h2 id="resume-modal-title" class="text-[1.5rem] font-[400]">
 						Download Resume
 					</h2>
-					<p class="max-w-sm text-[12px]">
+					<p class="max-w-sm text-[14px]">
 						You're about to download Robert Dominic's resume.
 					</p>
 				</div>
