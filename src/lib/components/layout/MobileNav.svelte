@@ -28,7 +28,7 @@
 
 <nav
 	aria-label="Mobile navigation"
-	class="glass-panel fixed bottom-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-sm -translate-x-1/2 rounded-2xl px-3 py-2 md:hidden"
+	class="glass-panel fixed bottom-4 left-1/2 z-100 w-[calc(100%-2rem)] max-w-sm -translate-x-1/2 rounded-2xl px-3 py-2 md:hidden"
 	style="padding-bottom: max(0.5rem, calc(env(safe-area-inset-bottom) + 0.5rem));"
 >
 	<ul class="flex items-center justify-between">
