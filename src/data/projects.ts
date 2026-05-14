@@ -36,7 +36,7 @@ export const projects: Project[] = [
 		date: '2026',
 		type: 'Frontend',
 		client: 'Personal Project',
-		featured: false
+		featured: true
 	},
 	{
 		id: 2,
@@ -146,7 +146,7 @@ export const projects: Project[] = [
 		date: '2026',
 		type: 'Full Stack',
 		client: 'Amazon Nova AI Hackathon 2026',
-		featured: false
+		featured: true
 	}
 ];
 
