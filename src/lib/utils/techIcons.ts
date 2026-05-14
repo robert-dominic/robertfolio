@@ -3,6 +3,7 @@ import { icons } from '$lib/utils/icons';
 export const techIcons: Record<string, string> = {
 	CSS: icons.css,
 	'CSS3': icons.css,
+	Express: icons.express,
 	Framer: icons.framer,
 	GSAP: icons.gsap,
 	'Shadcn UI': icons.shadcn,
@@ -13,6 +14,8 @@ export const techIcons: Record<string, string> = {
 	'HTML5': icons.html,
 	JavaScript: icons.javascript,
 	JS: icons.javascript,
+	MongoDB: icons.mongodb,
+	mongo: icons.mongodb,
 	'Next.js': icons.next,
 	NextJS: icons.next,
 	'Node.js': icons.node,
@@ -35,12 +38,14 @@ export const techIcons: Record<string, string> = {
 
 export const techIconColors: Record<string, string> = {
 	css: '#663399',
+	express: '#000000',
 	framer: '#0055FF',
 	git: '#F05032',
 	github: '#181717',
 	gsap: '#0AE448',
 	html: '#E34F26',
 	javascript: '#F7DF1E',
+	mongodb: '#47A248',
 	next: '#000000',
 	node: '#5FA04E',
 	postgresql: '#4169E1',
@@ -58,6 +63,7 @@ export const techIconColors: Record<string, string> = {
 const labelToIconKey: Record<string, string> = {
 	CSS: 'css',
 	'CSS3': 'css',
+	Express: 'express',
 	Framer: 'framer',
 	GSAP: 'gsap',
 	'Shadcn UI': 'shadcn',
@@ -68,6 +74,8 @@ const labelToIconKey: Record<string, string> = {
 	'HTML5': 'html',
 	JavaScript: 'javascript',
 	JS: 'javascript',
+	MongoDB: 'mongodb',
+	mongo: 'mongodb',
 	'Next.js': 'next',
 	NextJS: 'next',
 	'Node.js': 'node',

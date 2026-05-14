@@ -19,6 +19,7 @@ import calendarRaw from '$lib/assets/icons/calendar.svg?raw';
 // Brand icons (fill-based, from Simple Icons)
 import chromeRaw from '$lib/assets/icons/chromewebstore.svg?raw';
 import cssRaw from '$lib/assets/icons/css.svg?raw';
+import expressRaw from '$lib/assets/icons/express.svg?raw';
 import framerRaw from '$lib/assets/icons/framer.svg?raw';
 import gsapRaw from '$lib/assets/icons/gsap.svg?raw';
 import shadcnRaw from '$lib/assets/icons/shadcnui.svg?raw';
@@ -26,6 +27,7 @@ import gitRaw from '$lib/assets/icons/git.svg?raw';
 import githubRaw from '$lib/assets/icons/github.svg?raw';
 import html5Raw from '$lib/assets/icons/html5.svg?raw';
 import jsRaw from '$lib/assets/icons/javascript.svg?raw';
+import mongodbRaw from '$lib/assets/icons/mongodb.svg?raw';
 import nextRaw from '$lib/assets/icons/nextdotjs.svg?raw';
 import nodeRaw from '$lib/assets/icons/nodedotjs.svg?raw';
 import postgresRaw from '$lib/assets/icons/postgresql.svg?raw';
@@ -64,6 +66,7 @@ export const icons = {
 	// Brand
 	chrome: brand(chromeRaw),
 	css: brand(cssRaw),
+	express: brand(expressRaw),
 	framer: brand(framerRaw),
 	gsap: brand(gsapRaw),
 	shadcn: brand(shadcnRaw),
@@ -71,6 +74,7 @@ export const icons = {
 	github: brand(githubRaw),
 	html: brand(html5Raw),
 	javascript: brand(jsRaw),
+	mongodb: brand(mongodbRaw),
 	next: brand(nextRaw),
 	node: brand(nodeRaw),
 	postgresql: brand(postgresRaw),
