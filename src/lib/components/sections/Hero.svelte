@@ -66,8 +66,9 @@
 			class="pb-2 text-[1.5rem] sm:text-2xl lg:text-3xl font-[300]"
 			style="max-width: 16ch;"
 		>
-			Hey, I'm Robert Dominic.<br />
-			<span class="pt-4 text-[var(--color-text-soft)]"
+			Hey,<br />
+            I'm Robert Dominic.<br />
+			<span class="pt-6 text-[var(--color-text-soft)]"
 				>Frontend Engineer.</span
 			>
 		</h1>
