@@ -68,20 +68,20 @@
 
 		<!-- Title + description -->
 		<header class="space-y-3">
-			<h1 class="text-2xl sm:text-3xl">{project.title}</h1>
+			<h1 class="text-[1.5rem] font-[400] sm:text-3xl">{project.title}</h1>
 			<p class="text-measure-tight">{project.description}</p>
 		</header>
 
 		<!-- Info card -->
 		<div class="surface-card rounded-2xl p-6 sm:p-8 text-[1rem] leading-7 lg:text-[1.0625rem] lg:leading-8" style="font-family: 'Ubuntu', sans-serif;">
-			<h2 class="text-[0.95rem] font-semibold sm:text-base lg:text-[1.1rem]">Description</h2>
+			<h2 class="text-[0.95rem] font-[400] sm:text-base lg:text-[1.1rem]">Description</h2>
 			<div class="mt-3 space-y-4">
 				{#each project.longDescription.split('\n\n') as paragraph}
 					<p class="text-measure-tight text-[0.95rem] sm:text-base lg:text-[1.0625rem]">{paragraph}</p>
 				{/each}
 			</div>
 
-			<h2 class="mt-8 text-[0.95rem] font-semibold sm:text-base lg:text-[1.1rem]">Technologies</h2>
+			<h2 class="mt-8 text-[0.95rem] font-[400] sm:text-base lg:text-[1.1rem]">Technologies</h2>
 			<div class="mt-3 flex flex-wrap gap-2">
 				{#each project.tech as tech}
 					<TechBadge label={tech} />
