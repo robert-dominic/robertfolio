@@ -72,7 +72,7 @@
 		</div>
 	</div>
 
-	<h2 class="text-[1.8rem] sm:text-3xl mt-15">
+	<h2 class="text-[1.5rem] font-[1.5rem] sm:text-3xl mt-15">
 		Here's What I've Been Working On
 	</h2>
 
