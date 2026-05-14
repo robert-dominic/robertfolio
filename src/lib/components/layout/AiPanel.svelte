@@ -182,7 +182,7 @@
 			class="mb-4 flex items-center justify-between gap-4 border-b border-[var(--color-border)] pb-4"
 		>
 			<div>
-				<h2 id="ai-panel-title" class="text-xl">Ask Nova</h2>
+				<h2 id="ai-panel-title" class="text-xl font-[400]">Ask Nova</h2>
 				<p class="mt-1 text-sm">about skills, projects, or approach.</p>
 			</div>
 			<button
