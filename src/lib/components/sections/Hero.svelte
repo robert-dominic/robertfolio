@@ -139,7 +139,7 @@
 						alt={project.alt}
 						width="400"
 						height="280"
-						class="h-40 w-96 rounded-2xl object-cover transition duration-300 group-hover:scale-[1.03] cursor-pointer"
+						class="h-44 w-[26rem] rounded-2xl object-cover transition duration-300 group-hover:scale-[1.03] cursor-pointer sm:h-48 sm:w-[28rem] lg:h-56 lg:w-[33rem]"
 					/>
 				</button>
 			{/each}
