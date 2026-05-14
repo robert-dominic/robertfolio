@@ -1,9 +1,0 @@
-node_modules
-.svelte-kit
-.vercel
-build
-.git
-.gitignore
-.env
-.env.*
-npm-debug.log*
