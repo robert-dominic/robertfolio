@@ -189,6 +189,72 @@ html.dark {
 	.carousel-track:hover {
 		animation-play-state: paused;
 	}
+
+	.nova-markdown {
+		color: var(--color-text);
+	}
+
+	.nova-markdown > :first-child {
+		margin-top: 0;
+	}
+
+	.nova-markdown > :last-child {
+		margin-bottom: 0;
+	}
+
+	.nova-markdown p,
+	.nova-markdown li {
+		max-width: 100%;
+		color: inherit;
+		font-size: inherit;
+		line-height: 1.65;
+	}
+
+	.nova-markdown p + p,
+	.nova-markdown p + ul,
+	.nova-markdown p + ol,
+	.nova-markdown ul + p,
+	.nova-markdown ol + p,
+	.nova-markdown h1 + p,
+	.nova-markdown h2 + p,
+	.nova-markdown h3 + p {
+		margin-top: 0.65rem;
+	}
+
+	.nova-markdown ul,
+	.nova-markdown ol {
+		margin-left: 1rem;
+		padding-left: 0.5rem;
+	}
+
+	.nova-markdown ul {
+		list-style: disc;
+	}
+
+	.nova-markdown ol {
+		list-style: decimal;
+	}
+
+	.nova-markdown h1,
+	.nova-markdown h2,
+	.nova-markdown h3 {
+		max-width: 100%;
+		font-size: 0.95rem;
+		line-height: 1.35;
+	}
+
+	.nova-markdown a {
+		text-decoration: underline;
+		text-underline-offset: 0.14em;
+	}
+
+	.nova-markdown code {
+		border: 1px solid var(--color-border);
+		background: var(--color-accent-soft);
+		border-radius: 0.4rem;
+		padding: 0.1rem 0.35rem;
+		font-size: 0.9em;
+	}
 }
 
 @keyframes marquee {

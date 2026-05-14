@@ -2,6 +2,7 @@
 	import { browser } from "$app/environment";
 	import { createFocusTrap } from "$lib/utils/focusTrap";
 	import Icon from "$lib/components/ui/Icon.svelte";
+	import { renderMarkdown } from "$lib/utils/markdown";
 	import { tick } from "svelte";
 
 	type ChatMessage = {
@@ -26,6 +27,29 @@
 	const storageKey = "robertfolio-chat";
 
 	const sanitize = (value: string) => value.replace(/[<>]/g, "").trim();
+
+	const getPageContent = () => {
+		if (!browser) {
+			return "";
+		}
+
+		const main = document.querySelector("main");
+		const heading = document.querySelector("h1");
+		const pageTitle = document.title.trim();
+		const pagePath = window.location.pathname;
+		const mainText = main?.textContent?.replace(/\s+/g, " ").trim() ?? "";
+		const headingText = heading?.textContent?.trim() ?? "";
+
+		return [
+			`Page title: ${pageTitle}`,
+			`Path: ${pagePath}`,
+			headingText ? `Primary heading: ${headingText}` : "",
+			mainText ? `Visible page content: ${mainText}` : "",
+		]
+			.filter(Boolean)
+			.join("\n")
+			.slice(0, 12000);
+	};
 
 	const persistChat = () => {
 		if (!browser) {
@@ -58,8 +82,8 @@
 			return;
 		}
 
-		// Prevent page scroll while panel is open
-		document.body.style.overflow = "hidden";
+		const lockBodyScroll = !window.matchMedia("(min-width: 1024px)").matches;
+		document.body.style.overflow = lockBodyScroll ? "hidden" : "";
 
 		let active = true;
 		const savedHistory = localStorage.getItem(storageKey);
@@ -88,10 +112,11 @@
 		}
 
 		errorMessage = "";
-		chatHistory = [
+		const nextHistory: ChatMessage[] = [
 			...chatHistory,
 			{ role: "user", content: sanitizedMessage },
 		];
+		chatHistory = nextHistory;
 		message = "";
 		persistChat();
 		scrollToBottom();
@@ -101,7 +126,10 @@
 			const response = await fetch("/api/chat", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ messages: chatHistory }),
+				body: JSON.stringify({
+					messages: nextHistory,
+					pageContent: getPageContent(),
+				}),
 			});
 
 			if (!response.ok) {
@@ -193,7 +221,13 @@
 									: "surface-card text-[var(--color-text)]"
 							}`}
 						>
-							{entry.content}
+							{#if entry.role === "assistant"}
+								<div class="nova-markdown">
+									{@html renderMarkdown(entry.content)}
+								</div>
+							{:else}
+								{entry.content}
+							{/if}
 						</div>
 					</div>
 				{/each}
