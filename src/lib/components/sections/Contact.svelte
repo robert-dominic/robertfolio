@@ -260,7 +260,7 @@
 </script>
 
 <section id="contact" class="section-shell mt-28">
-	<h2 class="mx-auto max-w-2xl text-[1.5rem] font-[1.5rem] sm:text-3xl">Let's Talk</h2>
+	<h2 class="mx-auto max-w-2xl text-[1.5rem] font-[400] sm:text-3xl">Let's Talk</h2>
 	<p class="mx-auto mt-5 max-w-2xl text-measure-tight">
 		I'm always interested in exploring new opportunities, collaborating, or
 		exchanging ideas with like-minded builders. Feel free to reach out if
