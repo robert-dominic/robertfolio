@@ -61,7 +61,7 @@
 <main id="main-content" class="section-shell pb-20 pt-12 sm:pt-16">
 	<p class="caption-text mb-4">Archive</p>
 	<div class="flex items-center justify-between gap-4">
-		<h1 class="text-2xl sm:text-3xl">All Projects</h1>
+		<h1 class="text-[1.5rem] font-[400] sm:text-3xl">All Projects</h1>
 		<div class="flex items-center gap-2.5">
 			<label
 				for="type-filter"
