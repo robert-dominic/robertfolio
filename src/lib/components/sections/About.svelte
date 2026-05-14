@@ -48,7 +48,7 @@
 </script>
 
 <section id="about" bind:this={section} class="section-shell mt-28">
-	<h2 class="text-2xl sm:text-3xl">About Me</h2>
+	<h2 class="text-[1.5rem] font-[400] sm:text-3xl">About Me</h2>
 	<div class="mt-6 space-y-4 text-measure-tight">
 		<p>
 			I like building solid, scalable products with smooth user
