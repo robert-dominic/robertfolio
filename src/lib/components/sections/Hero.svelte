@@ -63,11 +63,11 @@
 	<!-- Name + title as one heading block -->
 	<div bind:this={nameEl}>
 		<h1
-			class="pb-2 text-[1.8rem] sm:text-3xl lg:text-4xl"
+			class="pb-2 text-[1.5rem] sm:text-2xl lg:text-3xl font-[300]"
 			style="max-width: 16ch;"
 		>
 			Hey, I'm Robert Dominic.<br />
-			<span class="pt-2 text-[var(--color-text-soft)]"
+			<span class="pt-4 text-[var(--color-text-soft)]"
 				>Frontend Engineer.</span
 			>
 		</h1>
