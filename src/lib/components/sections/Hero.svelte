@@ -135,7 +135,7 @@
 					onclick={() => openProject(project.slug)}
 				>
 					<img
-						src={project.image}
+						src={project.images[0]}
 						alt={project.alt}
 						width="400"
 						height="280"

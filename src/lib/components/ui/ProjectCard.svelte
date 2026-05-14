@@ -13,7 +13,7 @@
 >
 	<a href={`/projects/${project.slug}`} class="overflow-hidden block">
 		<img
-			src={project.image}
+			src={project.images[0]}
 			alt={project.alt}
 			width="960"
 			height="720"

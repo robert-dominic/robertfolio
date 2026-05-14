@@ -13,15 +13,17 @@
 	let article = $state<HTMLElement | null>(null);
 	let lightboxOpen = $state(false);
 	let activeImage = $state('');
+	const coverImage = $derived(project.images[0] ?? '');
 
-	const gallery = $derived([
-		{ src: project.image, alt: project.alt },
-		{ src: project.image, alt: `${project.alt} detail view` },
-		{ src: project.image, alt: `${project.alt} interface closeup` }
-	]);
+	const gallery = $derived(
+		project.images.map((src, index) => ({
+			src,
+			alt: index === 0 ? project.alt : `${project.alt} view ${index + 1}`
+		}))
+	);
 
 	onMount(() => {
-		activeImage = project.image;
+		activeImage = coverImage;
 		if (prefersReducedMotion() || !article) return;
 
 		const tween = gsap.fromTo(
@@ -45,7 +47,7 @@
 	import { PUBLIC_SITE_URL } from '$env/static/public';
 	const siteUrl = PUBLIC_SITE_URL;
 	const pageUrl = $derived(`${siteUrl}/projects/${project.slug}`);
-	const ogImage = $derived(project.image.startsWith('http') ? project.image : `${siteUrl}${project.image}`);
+	const ogImage = $derived(coverImage.startsWith('http') ? coverImage : `${siteUrl}${coverImage}`);
 </script>
 
 <svelte:head>
@@ -71,15 +73,15 @@
 		</header>
 
 		<!-- Info card -->
-		<div class="surface-card rounded-2xl p-6 sm:p-8 text-[0.9375rem] leading-7" style="font-family: 'Ubuntu', sans-serif;">
-			<h2 class="text-sm font-semibold">Description</h2>
+		<div class="surface-card rounded-2xl p-6 sm:p-8 text-[1rem] leading-7 lg:text-[1.0625rem] lg:leading-8" style="font-family: 'Ubuntu', sans-serif;">
+			<h2 class="text-[0.95rem] font-semibold sm:text-base lg:text-[1.1rem]">Description</h2>
 			<div class="mt-3 space-y-4">
 				{#each project.longDescription.split('\n\n') as paragraph}
-					<p class="text-measure-tight text-sm">{paragraph}</p>
+					<p class="text-measure-tight text-[0.95rem] sm:text-base lg:text-[1.0625rem]">{paragraph}</p>
 				{/each}
 			</div>
 
-			<h2 class="mt-8 text-sm font-semibold">Technologies</h2>
+			<h2 class="mt-8 text-[0.95rem] font-semibold sm:text-base lg:text-[1.1rem]">Technologies</h2>
 			<div class="mt-3 flex flex-wrap gap-2">
 				{#each project.tech as tech}
 					<TechBadge label={tech} />
@@ -136,7 +138,7 @@
 		<!-- Main large image -->
 		<button
 			type="button"
-			class="w-full cursor-pointer overflow-hidden rounded-2xl"
+			class="w-full cursor-pointer overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-1"
 			aria-label={`View full image for ${project.title}`}
 			onclick={() => openLightbox(gallery[0].src)}
 		>
@@ -154,7 +156,7 @@
 			{#each gallery.slice(1) as image}
 				<button
 					type="button"
-					class="cursor-pointer overflow-hidden rounded-xl"
+					class="cursor-pointer overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-1"
 					aria-label={`View image for ${project.title}`}
 					onclick={() => openLightbox(image.src)}
 				>
