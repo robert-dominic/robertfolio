@@ -66,7 +66,7 @@
 		>
 			<div class="mb-6 flex items-start justify-between gap-4">
 				<div class="space-y-2">
-					<h2 id="resume-modal-title" class="text-2xl">
+					<h2 id="resume-modal-title" class="text-[1.5rem] font-[400]">
 						Download Resume
 					</h2>
 					<p class="max-w-sm text-sm">
