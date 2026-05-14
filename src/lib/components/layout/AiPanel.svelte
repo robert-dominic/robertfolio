@@ -44,19 +44,22 @@
 
 	const onChatScroll = () => {
 		if (!chatContainer) return;
-		const distFromBottom = chatContainer.scrollHeight - chatContainer.scrollTop - chatContainer.clientHeight;
+		const distFromBottom =
+			chatContainer.scrollHeight -
+			chatContainer.scrollTop -
+			chatContainer.clientHeight;
 		showScrollBtn = distFromBottom > 80;
 	};
 
 	$effect(() => {
 		if (!browser || !open) {
 			cleanupTrap?.();
-			document.body.style.overflow = '';
+			document.body.style.overflow = "";
 			return;
 		}
 
 		// Prevent page scroll while panel is open
-		document.body.style.overflow = 'hidden';
+		document.body.style.overflow = "hidden";
 
 		let active = true;
 		const savedHistory = localStorage.getItem(storageKey);
@@ -74,7 +77,7 @@
 		return () => {
 			active = false;
 			cleanupTrap?.();
-			document.body.style.overflow = '';
+			document.body.style.overflow = "";
 		};
 	});
 
@@ -151,7 +154,7 @@
 			class="mb-4 flex items-center justify-between gap-4 border-b border-[var(--color-border)] pb-4"
 		>
 			<div>
-				<h2 id="ai-panel-title" class="text-xl">Ask Robert's AI</h2>
+				<h2 id="ai-panel-title" class="text-xl">Ask Nova</h2>
 				<p class="mt-1 text-sm">about skills, projects, or approach.</p>
 			</div>
 			<button
@@ -174,8 +177,8 @@
 					<div
 						class="rounded-xl border border-dashed border-[var(--color-border)] p-4 text-sm"
 					>
-						Robert's AI can summarize experience, tools, and project
-						highlights.
+						Nova can summarize experience, tools, and project
+						highlights about Robert.
 					</div>
 				{/if}
 
@@ -199,7 +202,10 @@
 					<div
 						class="flex items-center gap-2 text-sm text-[var(--color-text-soft)]"
 					>
-						<Icon name="loader-circle" class="h-4 w-4 animate-spin" />
+						<Icon
+							name="loader-circle"
+							class="h-4 w-4 animate-spin"
+						/>
 						<span>Thinking…</span>
 					</div>
 				{/if}
@@ -213,7 +219,7 @@
 					class="absolute bottom-2 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1.5 text-xs font-medium text-[var(--color-text-soft)] shadow-[var(--shadow-card)] hover:text-[var(--color-text)] transition"
 				>
 					<Icon name="chevron-right" class="h-3 w-3 rotate-90" />
-					Latest
+					Scroll to bottom
 				</button>
 			{/if}
 		</div>

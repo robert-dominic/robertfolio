@@ -82,7 +82,7 @@
 	</div>
 
 	<!-- CTA Buttons -->
-	<div bind:this={actionsEl} class="mt-8 flex flex-wrap gap-3">
+	<div bind:this={actionsEl} class="mt-8 flex flex-wrap gap-1.5 md:gap-3">
 		<SparkleButton
 			label="View My Work"
 			variant="primary"
@@ -139,7 +139,7 @@
 						alt={project.alt}
 						width="400"
 						height="280"
-						class="h-40 w-96 rounded-2xl object-cover transition duration-300 group-hover:scale-[1.03]"
+						class="h-40 w-96 rounded-2xl object-cover transition duration-300 group-hover:scale-[1.03] cursor-pointer"
 					/>
 				</button>
 			{/each}

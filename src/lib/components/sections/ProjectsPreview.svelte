@@ -81,6 +81,11 @@
 	</div>
 
 	<div class="mt-10 flex justify-center">
-		<SparkleButton label="View All Projects" variant="primary" href="/projects" class="rounded-full px-7 py-2.5" />
+		<SparkleButton
+			label="View All Projects"
+			variant="primary"
+			href="/projects"
+			class="rounded-full py-2.5"
+		/>
 	</div>
 </section>

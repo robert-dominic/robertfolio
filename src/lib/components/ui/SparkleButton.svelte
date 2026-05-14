@@ -24,11 +24,11 @@
 	let particles = $state<Particle[]>([]);
 
 	const baseClass = $derived(
-		`relative inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-xl px-5 py-3 text-sm font-medium hover:px-7 disabled:cursor-not-allowed disabled:opacity-50 ${
+		`relative inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-xl px-4 py-3 text-sm font-medium hover:px-6 disabled:cursor-not-allowed disabled:opacity-50 ${
 			variant === "primary"
 				? "bg-[var(--color-text)] text-[var(--color-bg)]"
 				: "border border-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-accent-soft)]"
-		} ${extraClass}`
+		} ${extraClass}`,
 	);
 
 	const burst = (event: MouseEvent) => {
