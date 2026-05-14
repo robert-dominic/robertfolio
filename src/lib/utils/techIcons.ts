@@ -3,6 +3,7 @@ import { icons } from '$lib/utils/icons';
 export const techIcons: Record<string, string> = {
 	CSS: icons.css,
 	'CSS3': icons.css,
+	Framer: icons.framer,
 	GSAP: icons.gsap,
 	'Shadcn UI': icons.shadcn,
 	'shadcn/ui': icons.shadcn,
@@ -26,6 +27,7 @@ export const techIcons: Record<string, string> = {
 	TailwindCSS: icons.tailwind,
 	TypeScript: icons.typescript,
 	TS: icons.typescript,
+	Vite: icons.vite,
 	'Vue.js': icons.vue,
 	Vue: icons.vue,
 	'Chrome Web Store': icons.chrome,
@@ -33,6 +35,7 @@ export const techIcons: Record<string, string> = {
 
 export const techIconColors: Record<string, string> = {
 	css: '#663399',
+	framer: '#0055FF',
 	git: '#F05032',
 	github: '#181717',
 	gsap: '#0AE448',
@@ -47,6 +50,7 @@ export const techIconColors: Record<string, string> = {
 	svelte: '#FF3E00',
 	tailwind: '#06B6D4',
 	typescript: '#3178C6',
+	vite: '#9135FF',
 	vue: '#4FC08D',
 	chrome: '#4285F4',
 };
@@ -54,6 +58,7 @@ export const techIconColors: Record<string, string> = {
 const labelToIconKey: Record<string, string> = {
 	CSS: 'css',
 	'CSS3': 'css',
+	Framer: 'framer',
 	GSAP: 'gsap',
 	'Shadcn UI': 'shadcn',
 	'shadcn/ui': 'shadcn',
@@ -77,6 +82,7 @@ const labelToIconKey: Record<string, string> = {
 	TailwindCSS: 'tailwind',
 	TypeScript: 'typescript',
 	TS: 'typescript',
+	Vite: 'vite',
 	'Vue.js': 'vue',
 	Vue: 'vue',
 	'Chrome Web Store': 'chrome',

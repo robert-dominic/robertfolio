@@ -72,7 +72,9 @@
 		</div>
 	</div>
 
-	<h2 class="text-xl sm:text-3xl mt-15">What I've Been Working On</h2>
+	<h2 class="text-[1.8rem] sm:text-3xl mt-15">
+		Here's What I've Been Working On
+	</h2>
 
 	<div class="mt-10 grid gap-6 md:grid-cols-2">
 		{#each featuredProjects as project, index}

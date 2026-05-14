@@ -16,7 +16,7 @@ const emailTemplate = (name: string, email: string, message: string) => `
   <title>New Message — Robertfolio</title>
 </head>
 <body style="margin:0;padding:0;background:#0a0a0a;font-family:'Geist',system-ui,-apple-system,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#0a0a0a;padding:40px 16px;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#0a0a0a;padding:35px 13px;">
     <tr>
       <td align="center">
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
@@ -25,7 +25,7 @@ const emailTemplate = (name: string, email: string, message: string) => `
           <tr>
             <td style="padding-bottom:32px;">
               <p style="margin:0;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#71717a;">
-                robertfolio.pxxl.app
+                robert-dominic.vercel.app
               </p>
             </td>
           </tr>
@@ -65,7 +65,7 @@ const emailTemplate = (name: string, email: string, message: string) => `
                 <tr>
                   <td style="background:#fafafa;border-radius:12px;">
                     <a href="mailto:${email}" style="display:inline-block;padding:12px 24px;font-size:13px;font-weight:600;color:#0a0a0a;text-decoration:none;">
-                      Reply to ${name} →
+                      Reply to ${name}
                     </a>
                   </td>
                 </tr>

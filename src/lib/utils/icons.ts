@@ -19,6 +19,7 @@ import calendarRaw from '$lib/assets/icons/calendar.svg?raw';
 // Brand icons (fill-based, from Simple Icons)
 import chromeRaw from '$lib/assets/icons/chromewebstore.svg?raw';
 import cssRaw from '$lib/assets/icons/css.svg?raw';
+import framerRaw from '$lib/assets/icons/framer.svg?raw';
 import gsapRaw from '$lib/assets/icons/gsap.svg?raw';
 import shadcnRaw from '$lib/assets/icons/shadcnui.svg?raw';
 import gitRaw from '$lib/assets/icons/git.svg?raw';
@@ -34,6 +35,7 @@ import svelteRaw from '$lib/assets/icons/svelte.svg?raw';
 import tailwindRaw from '$lib/assets/icons/tailwindcss.svg?raw';
 import twitterRaw from '$lib/assets/icons/twitter.svg?raw';
 import tsRaw from '$lib/assets/icons/typescript.svg?raw';
+import viteRaw from '$lib/assets/icons/vite.svg?raw';
 import vueRaw from '$lib/assets/icons/vuedotjs.svg?raw';
 
 // Strips <title> tags and adds fill="currentColor" so brand icons inherit text color
@@ -62,6 +64,7 @@ export const icons = {
 	// Brand
 	chrome: brand(chromeRaw),
 	css: brand(cssRaw),
+	framer: brand(framerRaw),
 	gsap: brand(gsapRaw),
 	shadcn: brand(shadcnRaw),
 	git: brand(gitRaw),
@@ -77,6 +80,7 @@ export const icons = {
 	tailwind: brand(tailwindRaw),
 	twitter: brand(twitterRaw),
 	typescript: brand(tsRaw),
+	vite: brand(viteRaw),
 	vue: brand(vueRaw),
 } as const;
 
