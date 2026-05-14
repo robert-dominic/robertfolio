@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Icon from "$lib/components/ui/Icon.svelte";
 	import SparkleButton from "$lib/components/ui/SparkleButton.svelte";
-	import { PUBLIC_CAL_URL } from '$env/static/public';
 	import gsap from "gsap";
 	import { tick } from "svelte";
 	import { prefersReducedMotion } from "$lib/utils/animationHelpers";
@@ -13,6 +12,8 @@
 	};
 
 	type Errors = Partial<Record<keyof FormValues, string>>;
+
+	const CAL_URL = "https://cal.com/robert-dominic";
 
 	const initialValues: FormValues = {
 		fullName: "",
@@ -220,19 +221,20 @@
 		await Promise.all([
 			(async () => {
 				try {
-					const res = await fetch('/api/contact', {
-						method: 'POST',
-						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify(values)
+					const res = await fetch("/api/contact", {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify(values),
 					});
 					apiOk = res.ok;
 					if (!res.ok) {
 						const data = await res.json().catch(() => ({}));
-						failureMessage = data.error ?? 'Failed to send. Please try again.';
+						failureMessage =
+							data.error ?? "Failed to send. Please try again.";
 					}
 				} catch {
 					apiOk = false;
-					failureMessage = 'Failed to send. Please try again.';
+					failureMessage = "Failed to send. Please try again.";
 				}
 			})(),
 			new Promise<void>((resolve) => setTimeout(resolve, 3000)),
@@ -373,13 +375,17 @@
 					/>
 
 					<div class="flex items-center gap-3 mt-4">
-						<span class="h-px flex-1 bg-[var(--color-border)]"></span>
-						<span class="text-xs text-[var(--color-text-soft)]">or</span>
-						<span class="h-px flex-1 bg-[var(--color-border)]"></span>
+						<span class="h-px flex-1 bg-[var(--color-border)]"
+						></span>
+						<span class="text-xs text-[var(--color-text-soft)]"
+							>or</span
+						>
+						<span class="h-px flex-1 bg-[var(--color-border)]"
+						></span>
 					</div>
 
 					<a
-						href={PUBLIC_CAL_URL}
+						href={CAL_URL}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="flex items-center justify-center gap-2 text-sm text-[var(--color-text-soft)] hover:text-[var(--color-text)] transition"
