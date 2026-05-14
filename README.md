@@ -3,7 +3,6 @@
 A production-grade interactive developer portfolio built with SvelteKit, TailwindCSS, TypeScript, and GSAP. Designed to feel like an experience — not just a page.
 
 **Live URL:** https://robert-dominic.vercel.app
-**GitHub:** https://github.com/robert-dominic/robertfolio
 
 ---
 
