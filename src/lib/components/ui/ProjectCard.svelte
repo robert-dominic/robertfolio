@@ -23,7 +23,7 @@
 	</a>
 	<div class="flex flex-1 flex-col p-5">
 		<div class="flex items-start justify-between gap-3">
-			<h3 class="text-lg font-semibold leading-snug">{project.title}</h3>
+			<h3 class="text-lg font-[400] leading-snug">{project.title}</h3>
 			<div class="flex shrink-0 items-center gap-1">
 				<a
 					href={project.liveUrl}
