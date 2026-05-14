@@ -173,7 +173,7 @@
 >
 	<div
 		bind:this={panel}
-		class="glass-panel flex h-[90vw] w-full flex-col rounded-t-[1rem] px-4 pb-4 pt-5 text-[var(--color-text)] lg:rounded-[1rem]"
+		class="glass-panel flex h-[85vh] w-full flex-col rounded-t-[1rem] px-4 pb-4 pt-5 text-[var(--color-text)] lg:rounded-[1rem]"
 		role="dialog"
 		aria-modal="true"
 		aria-labelledby="ai-panel-title"
