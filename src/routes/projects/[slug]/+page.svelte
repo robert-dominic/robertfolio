@@ -73,7 +73,7 @@
 		</header>
 
 		<!-- Info card -->
-		<div class="surface-card rounded-2xl p-2 sm:p-6 text-[1rem] leading-7 lg:text-[1.0625rem] lg:leading-8" style="font-family: 'Ubuntu', sans-serif;">
+		<div class="surface-card rounded-2xl p-4 sm:p-6 text-[1rem] leading-7 lg:text-[1.0625rem] lg:leading-8" style="font-family: 'Ubuntu', sans-serif;">
 			<h2 class="text-[0.95rem] font-[400] sm:text-base lg:text-[1.1rem]">Description</h2>
 			<div class="mt-3 space-y-4">
 				{#each project.longDescription.split('\n\n') as paragraph}
