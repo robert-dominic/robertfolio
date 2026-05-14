@@ -25,7 +25,7 @@
 	let isDark = $state(false);
 
 	const openAiPanel = () => {
-		aiPanelOpen.set(true);
+		aiPanelOpen.update((v) => !v);
 	};
 
 	const closeAiPanel = () => {
@@ -103,6 +103,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<link rel="preload" href="/images/photos/image-2.webp" as="image" type="image/webp" />
 	<meta
 		name="description"
 		content="Robert Dominic is a self-taught full-stack frontend engineer building performant, thoughtful digital products."

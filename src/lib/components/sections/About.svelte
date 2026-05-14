@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	const img2 = "/images/photos/image-2.jpeg";
-	const img3 = "/images/photos/image-3.jpg";
+	const imgBack = "/images/photos/image-1.webp";
+	const imgFront = "/images/photos/image-2.webp";
 	import gsap from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import {
@@ -26,7 +26,8 @@
 		window.addEventListener("resize", updateViewportState);
 
 		if (prefersReducedMotion()) {
-			return () => window.removeEventListener("resize", updateViewportState);
+			return () =>
+				window.removeEventListener("resize", updateViewportState);
 		}
 
 		registerGsapPlugins();
@@ -89,17 +90,18 @@
 			}; transition: ${isMobile ? "none" : "transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1)"}; z-index: ${isMobile ? 2 : 1};`}
 		>
 			<img
-				src={img3}
+				src={imgBack}
 				alt="Robert at a casual setting"
 				width="400"
 				height="500"
+				loading="lazy"
 				class="h-full w-full rounded-xl object-cover"
 			/>
 		</figure>
 
 		<!-- Front image — rotated right, spreads further right on hover -->
 		<figure
-			class="absolute inset-0 rounded-2xl bg-[var(--color-surface-card)] p-2.5"
+			class="absolute inset-0 rounded-2xl bg-[var(--color-surface-card)] p-2.5 shadow-lg ring-1 ring-white/40"
 			style={`transform: ${
 				isMobile
 					? "translateX(12px) translateY(12px)"
@@ -107,10 +109,11 @@
 			}; transition: ${isMobile ? "none" : "transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1)"}; z-index: 2;`}
 		>
 			<img
-				src={img2}
+				src={imgFront}
 				alt="Robert at a desk setup"
 				width="400"
 				height="500"
+				fetchpriority="high"
 				class="h-full w-full rounded-xl object-cover"
 			/>
 		</figure>

@@ -3,6 +3,8 @@
 	import Icon from "$lib/components/ui/Icon.svelte";
 	import SparkleButton from "$lib/components/ui/SparkleButton.svelte";
 	const profileImg = "/images/photos/image-1.jpg";
+	const profileImgWebp = "/images/photos/image-1.webp";
+	import { toWebP } from "$lib/utils/imageHelpers";
 	import { onMount } from "svelte";
 	import gsap from "gsap";
 	import { projects } from "$data/projects";
@@ -51,13 +53,16 @@
 		bind:this={profile}
 		class="mb-8 h-20 w-20 overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-accent-soft)]"
 	>
-		<img
-			src={profileImg}
-			alt="Portrait of Robert Dominic"
-			width="256"
-			height="256"
-			class="h-full w-full rounded-full object-cover"
-		/>
+		<picture>
+			<source srcset={profileImgWebp} type="image/webp" />
+			<img
+				src={profileImg}
+				alt="Portrait of Robert Dominic"
+				width="256"
+				height="256"
+				class="h-full w-full rounded-full object-cover"
+			/>
+		</picture>
 	</div>
 
 	<!-- Name + title as one heading block -->
@@ -135,13 +140,17 @@
 					aria-label={`Open ${project.title}`}
 					onclick={() => openProject(project.slug)}
 				>
-					<img
-						src={project.images[0]}
-						alt={project.alt}
-						width="400"
-						height="280"
-						class="h-44 w-[26rem] rounded-2xl object-cover transition duration-300 group-hover:scale-[1.03] cursor-pointer sm:h-48 sm:w-[28rem] lg:h-56 lg:w-[33rem]"
-					/>
+					<picture>
+						<source srcset={toWebP(project.images[0])} type="image/webp" />
+						<img
+							src={project.images[0]}
+							alt={project.alt}
+							width="400"
+							height="280"
+							loading="lazy"
+							class="h-44 w-[26rem] rounded-2xl object-cover transition duration-300 group-hover:scale-[1.03] cursor-pointer sm:h-48 sm:w-[28rem] lg:h-56 lg:w-[33rem]"
+						/>
+					</picture>
 				</button>
 			{/each}
 		</div>

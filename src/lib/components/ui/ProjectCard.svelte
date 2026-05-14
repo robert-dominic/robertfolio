@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Icon from "$lib/components/ui/Icon.svelte";
 	import type { Project } from "$data/projects";
+	import { toWebP } from "$lib/utils/imageHelpers";
 
 	let { project, eager = false } = $props<{
 		project: Project;
@@ -12,14 +13,17 @@
 	class="surface-card group flex h-full flex-col overflow-hidden rounded-2xl cursor-pointer"
 >
 	<a href={`/projects/${project.slug}`} class="overflow-hidden block">
-		<img
-			src={project.images[0]}
-			alt={project.alt}
-			width="960"
-			height="720"
-			loading={eager ? "eager" : "lazy"}
-			class="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
-		/>
+		<picture>
+			<source srcset={toWebP(project.images[0])} type="image/webp" />
+			<img
+				src={project.images[0]}
+				alt={project.alt}
+				width="960"
+				height="720"
+				loading={eager ? "eager" : "lazy"}
+				class="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+			/>
+		</picture>
 	</a>
 	<div class="flex flex-1 flex-col p-5">
 		<div class="flex items-start justify-between gap-3">

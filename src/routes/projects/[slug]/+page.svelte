@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
 	import { prefersReducedMotion } from '$lib/utils/animationHelpers';
+	import { toWebP } from '$lib/utils/imageHelpers';
 
 	let { data } = $props();
 	const project = $derived(data.project);
@@ -88,7 +89,7 @@
 				{/each}
 			</div>
 
-			<div class="mt-8 grid gap-6 sm:grid-cols-3">
+			<div class="mt-8 flex flex-wrap gap-6">
 				<div>
 					<p class="caption-text mb-1.5">Date</p>
 					<p class="text-sm">{project.date}</p>
@@ -142,13 +143,16 @@
 			aria-label={`View full image for ${project.title}`}
 			onclick={() => openLightbox(gallery[0].src)}
 		>
-			<img
-				src={gallery[0].src}
-				alt={gallery[0].alt}
-				width="960"
-				height="600"
-				class="w-full rounded-2xl object-cover"
-			/>
+			<picture>
+				<source srcset={toWebP(gallery[0].src)} type="image/webp" />
+				<img
+					src={gallery[0].src}
+					alt={gallery[0].alt}
+					width="960"
+					height="600"
+					class="w-full rounded-2xl object-cover"
+				/>
+			</picture>
 		</button>
 
 		<!-- 2-col gallery -->
@@ -160,13 +164,17 @@
 					aria-label={`View image for ${project.title}`}
 					onclick={() => openLightbox(image.src)}
 				>
-					<img
-						src={image.src}
-						alt={image.alt}
-						width="960"
-						height="720"
-						class="h-52 w-full rounded-xl object-cover transition duration-200 hover:scale-[1.02]"
-					/>
+					<picture>
+						<source srcset={toWebP(image.src)} type="image/webp" />
+						<img
+							src={image.src}
+							alt={image.alt}
+							width="960"
+							height="720"
+							loading="lazy"
+							class="h-52 w-full rounded-xl object-cover transition duration-200 hover:scale-[1.02]"
+						/>
+					</picture>
 				</button>
 			{/each}
 		</div>
