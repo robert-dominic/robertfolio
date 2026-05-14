@@ -12,10 +12,21 @@
 	let section = $state<HTMLElement | null>(null);
 	let trigger: ScrollTrigger | undefined;
 	let hovered = $state(false);
+	let isMobile = $state(false);
+
+	const updateViewportState = () => {
+		isMobile = window.innerWidth < 640;
+		if (isMobile) {
+			hovered = false;
+		}
+	};
 
 	onMount(() => {
+		updateViewportState();
+		window.addEventListener("resize", updateViewportState);
+
 		if (prefersReducedMotion()) {
-			return;
+			return () => window.removeEventListener("resize", updateViewportState);
 		}
 
 		registerGsapPlugins();
@@ -29,7 +40,10 @@
 			},
 		});
 
-		return () => trigger?.kill();
+		return () => {
+			window.removeEventListener("resize", updateViewportState);
+			trigger?.kill();
+		};
 	});
 </script>
 
@@ -57,16 +71,22 @@
 	<div
 		role="presentation"
 		class="relative mx-auto mt-15 select-none"
-		style="width: 280px; height: 300px;"
-		onmouseenter={() => (hovered = true)}
-		onmouseleave={() => (hovered = false)}
+		style={`width: ${isMobile ? "232px" : "280px"}; height: ${isMobile ? "252px" : "300px"};`}
+		onmouseenter={() => {
+			if (!isMobile) hovered = true;
+		}}
+		onmouseleave={() => {
+			hovered = false;
+		}}
 	>
 		<!-- Back image — rotated left, spreads further left on hover -->
 		<figure
 			class="absolute inset-0 rounded-2xl bg-[var(--color-surface-card)] p-2.5 shadow-lg ring-1 ring-white/40"
-			style="transform: rotate(-5deg) {!hovered
-				? 'translateX(-22px) translateY(10px)'
-				: 'translateX(-50px) translateY(-12px)'}; transition: transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 1;"
+			style={`transform: ${
+				isMobile
+					? "none"
+					: `rotate(-5deg) ${!hovered ? "translateX(-22px) translateY(10px)" : "translateX(-50px) translateY(-12px)"}`
+			}; transition: ${isMobile ? "none" : "transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1)"}; z-index: ${isMobile ? 2 : 1};`}
 		>
 			<img
 				src={img3}
@@ -80,9 +100,11 @@
 		<!-- Front image — rotated right, spreads further right on hover -->
 		<figure
 			class="absolute inset-0 rounded-2xl bg-[var(--color-surface-card)] p-2.5"
-			style="transform: rotate(5deg) {!hovered
-				? 'translateX(22px) translateY(10px)'
-				: 'translateX(50px) translateY(12px)'}; transition: transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 2;"
+			style={`transform: ${
+				isMobile
+					? "translateX(12px) translateY(12px)"
+					: `rotate(5deg) ${!hovered ? "translateX(22px) translateY(10px)" : "translateX(50px) translateY(12px)"}`
+			}; transition: ${isMobile ? "none" : "transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1)"}; z-index: 2;`}
 		>
 			<img
 				src={img2}
